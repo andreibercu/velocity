@@ -1,0 +1,41 @@
+{
+  "mappings": {
+    "properties": {
+      "id": {
+        "type": "keyword"
+      },
+      "name": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "color": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "weight": {
+        "type": "double"
+      },
+      "height": {
+        "type": "double"
+      },
+      "createdAt": {
+        "type": "date",
+        "format": "date_optional_time||epoch_millis"
+      },
+      "updatedAt": {
+        "type": "date",
+        "format": "date_optional_time||epoch_millis"
+      }
+    }
+  }
+}
