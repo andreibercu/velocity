@@ -4,7 +4,7 @@
 
 The Birds Spring Boot application provides a REST API for CRUD operations on Birds and Sightings. It also enables Redis for caching DB operations and Elasticsearch for supporting fuzzy search for both Bird and Sighting records.
 
-After building it, you can check the generated javadoc by opening the birds/target/javadoc/apidocs/index.html file in a browser.
+After building it, you can check the generated javadoc by opening the ```birds/target/javadoc/apidocs/index.html``` file in a browser.
 
 You can spin up the app and required services - PostgreSQL DB, Redis and Elasticsearch - using the docker-compose command below.
 
