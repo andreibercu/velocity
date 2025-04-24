@@ -2,10 +2,9 @@
 <?eclipse version="3.4"?>
 <plugin>
 
-   <extension
-         id="application"
+   <extension id="application"
          point="org.eclipse.core.runtime.applications">
-      <application>
+      <application id="com.abercu.velo.birds.Application">
          <run
                class="com.abercu.velo.birds.Application">
          </run>

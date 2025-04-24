@@ -14,5 +14,4 @@ Automatic-Module-Name: com.abercu.velo.birds
 Import-Package: javax.inject
 Bundle-ActivationPolicy: lazy
 Export-Package: com.abercu.velo.birds
-Bundle-ClassPath: src/,
- lib/json-20231013.jar
+Bundle-ClassPath: ., lib/json-20231013.jar

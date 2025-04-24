@@ -1,14 +1,18 @@
 package com.abercu.velocity.birds.controller;
 
+import com.abercu.velocity.birds.configuration.ElasticIndexInitializer;
 import com.abercu.velocity.birds.dto.BirdDto;
 import com.abercu.velocity.birds.entity.BirdEntity;
 import com.abercu.velocity.birds.repository.BirdRepository;
+import com.abercu.velocity.birds.repository.ElasticBirdRepository;
+import com.abercu.velocity.birds.repository.ElasticSightingRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -29,6 +33,15 @@ public class BirdsControllerIntegrationTest {
 
     @Autowired
     private ObjectMapper objectMapper;
+
+    @MockBean
+    private ElasticBirdRepository elasticBirdRepository;
+
+    @MockBean
+    private ElasticSightingRepository elasticSightingRepository;
+
+    @MockBean
+    private ElasticIndexInitializer elasticIndexInitializer;
 
     @BeforeEach
     public void cleanUp() {
@@ -98,6 +111,6 @@ public class BirdsControllerIntegrationTest {
                 .andExpect(status().isOk());
 
         mockMvc.perform(get("/birds/{id}", created.getId()))
-                .andExpect(status().isBadRequest());
+                .andExpect(status().isNotFound());
     }
 }
